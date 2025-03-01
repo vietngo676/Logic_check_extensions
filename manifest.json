@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Logic Check Extension",
+    "version": "1.0",
+    "description": "Extension giúp đánh giá logic và độ uy tín của thông tin.",
+    "permissions": [
+        "activeTab",
+        "contextMenus",
+        "storage",
+        "scripting",
+        "identity"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
